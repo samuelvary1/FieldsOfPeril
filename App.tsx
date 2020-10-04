@@ -50,7 +50,9 @@ const App = () => {
             <View style={styles.body}>
               <Card>
                 <Card.Content>
-                  <Title>Welcome to Fields of Peril</Title>
+                  <Title style={{color: colors.primary}}>
+                    Welcome to Fields of Peril
+                  </Title>
                   <Paragraph>
                     A text based adventure game in the spirit of Zork
                   </Paragraph>
