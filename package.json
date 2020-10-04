@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@material-ui/core": "^4.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
     "final-form": "^4.20.1",
     "react": "16.13.1",
     "react-dom": "^16.13.1",
@@ -32,9 +33,20 @@
     "eslint": "^6.5.1",
     "jest": "^25.1.0",
     "metro-react-native-babel-preset": "^0.59.0",
+    "prettier": "^1.18.2",
     "react-test-renderer": "16.13.1",
-    "typescript": "^3.8.3",
-    "prettier": "^1.18.2"
+    "typescript": "^3.8.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "jest": {
     "preset": "react-native",

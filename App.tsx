@@ -18,13 +18,19 @@ import {
   StatusBar,
 } from 'react-native';
 
-import {Provider as PaperProvider, useTheme, Button, Card, Title, Paragraph} from 'react-native-paper';
+import {
+  Provider as PaperProvider,
+  useTheme,
+  Button,
+  Card,
+  Title,
+  Paragraph,
+} from 'react-native-paper';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import theme from './CustomProperties/Theme';
 
 declare const global: {HermesInternal: null | {}};
-
 
 const App = () => {
   const {colors} = useTheme();
@@ -42,20 +48,20 @@ const App = () => {
               </View>
             )}
             <View style={styles.body}>
-            <Card>
-    <Card.Title title="Card Title" subtitle="Card Subtitle" />
-    <Card.Content>
-      <Title>Card title</Title>
-      <Paragraph>Card content</Paragraph>
-    </Card.Content>
-    <Card.Cover source={{ uri: 'https://picsum.photos/700' }} />
-    <Card.Actions>
-      <Button>Cancel</Button>
-      <Button>Ok</Button>
-    </Card.Actions>
-  </Card>
+              <Card>
+                <Card.Title title="Card Title" subtitle="Card Subtitle" />
+                <Card.Content>
+                  <Title>Card title</Title>
+                  <Paragraph>Card content</Paragraph>
+                </Card.Content>
+                <Card.Cover source={{uri: 'https://picsum.photos/700'}} />
+                <Card.Actions>
+                  <Button>Cancel</Button>
+                  <Button>Ok</Button>
+                </Card.Actions>
+              </Card>
               <View style={styles.sectionContainer}>
-                <Text style={{ color: colors.primary}}>
+                <Text style={{color: colors.primary}}>
                   Welcome to Fields Of Peril
                 </Text>
                 <Text style={styles.sectionDescription}>
