@@ -49,23 +49,26 @@ const App = () => {
             )}
             <View style={styles.body}>
               <Card>
-                <Card.Title title="Card Title" subtitle="Card Subtitle" />
                 <Card.Content>
-                  <Title>Card title</Title>
-                  <Paragraph>Card content</Paragraph>
+                  <Title>Welcome to Fields of Peril</Title>
+                  <Paragraph>
+                    A text based adventure game in the spirit of Zork
+                  </Paragraph>
                 </Card.Content>
-                <Card.Cover source={{uri: 'https://picsum.photos/700'}} />
+                <Card.Cover
+                  source={{
+                    uri:
+                      'https://cdn.theatlantic.com/assets/media/img/photo/2014/03/believed-to-be-russian-soldiers/r01_RTR3G2M6-1/original.jpg',
+                  }}
+                />
                 <Card.Actions>
-                  <Button>Cancel</Button>
-                  <Button>Ok</Button>
+                  <Button>New Game</Button>
+                  <Button>Continue</Button>
                 </Card.Actions>
               </Card>
               <View style={styles.sectionContainer}>
-                <Text style={{color: colors.primary}}>
-                  Welcome to Fields Of Peril
-                </Text>
                 <Text style={styles.sectionDescription}>
-                  The game that will shiver you to your marrow.
+                  Choose one of the options above to gear up and get started.
                 </Text>
               </View>
             </View>
