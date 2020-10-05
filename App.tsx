@@ -17,6 +17,7 @@ import {Provider as PaperProvider} from 'react-native-paper';
 
 import theme from './CustomProperties/Theme';
 import HomeScreen from './Components/HomeScreen';
+import NewGameScreen from './Components/NewGameScreen';
 
 const Stack = createStackNavigator();
 
@@ -30,6 +31,11 @@ const App = () => {
               name="Home"
               component={HomeScreen}
               options={{title: 'Welcome to Fields of Peril'}}
+            />
+            <Stack.Screen
+              name="NewGameScreen"
+              component={NewGameScreen}
+              options={{title: 'You are beginning a new journey...'}}
             />
           </Stack.Navigator>
         </PaperProvider>

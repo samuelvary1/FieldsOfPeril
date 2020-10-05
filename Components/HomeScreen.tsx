@@ -43,7 +43,10 @@ const HomeScreen = ({navigation}) => {
             </Card>
             <View style={styles.container}>
               <View style={styles.buttonContainer}>
-                <Button onPress={handlePress} title="New Game" />
+                <Button
+                  title="New Game"
+                  onPress={() => navigation.navigate('NewGameScreen')}
+                />
               </View>
               <View style={styles.buttonContainer}>
                 <Button onPress={handlePress} title="Continue" />
