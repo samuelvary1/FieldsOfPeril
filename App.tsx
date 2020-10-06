@@ -12,7 +12,7 @@ import {createStackNavigator} from '@react-navigation/stack';
  */
 
 import React from 'react';
-
+import database from '@react-native-firebase/database';
 import {Provider as PaperProvider} from 'react-native-paper';
 
 import theme from './CustomProperties/Theme';
