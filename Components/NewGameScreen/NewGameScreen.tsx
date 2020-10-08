@@ -24,7 +24,7 @@ const handleSubmit = (inputPhrase: string) => {
 };
 
 const NewGameScreen = () => {
-  const [value, onChangeText] = React.useState('Enter your custom command...');
+  const [value, onChangeText] = useState('Enter your custom command...');
   const [locations, setLocations] = useState([]);
   const newLocations = [];
 
@@ -60,12 +60,9 @@ const NewGameScreen = () => {
             <TextInput
               style={{height: 40, borderColor: 'gray', borderWidth: 1}}
               onChangeText={text => onChangeText(text)}
-              onSubmitEditing={handleSubmit}
+              onSubmitEditing={(event) => handleSubmit(event.nativeEvent.text)}
               value={value}
             />
-            <TouchableOpacity onPress={handleSubmit}>
-              <Text>Submit</Text>
-            </TouchableOpacity>
           </Card.Content>
           <Card.Actions>
             <Button title="Go North" onPress={() => goNorth()} />
