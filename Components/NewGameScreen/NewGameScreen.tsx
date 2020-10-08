@@ -28,9 +28,8 @@ const NewGameScreen = () => {
       .then(snapshot => {
         snapshot.docs.forEach(doc => {
           let location = doc.data();
-          location = JSON.stringify(location);
+          // location = JSON.stringify(location);
           newLocations.push(location);
-          console.log(newLocations);
           setLocations(newLocations);
         });
       });
@@ -40,9 +39,13 @@ const NewGameScreen = () => {
   }, []);
 
   const renderEntity = () => {
+    console.log(locations[0].name);
     return (
       <View>
-        <Text>Current location: {locations[0]}</Text>
+        <FlatList
+          data={locations}
+          renderItem={({item}) => <Text>{item.name}</Text>}
+        />
       </View>
     );
   };
