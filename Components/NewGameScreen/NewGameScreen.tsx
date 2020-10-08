@@ -1,23 +1,30 @@
 import React, {useEffect, useState} from 'react';
 import {
-  Button,
   FlatList,
   SafeAreaView,
   Text,
   TextInput,
   View,
+  TouchableOpacity,
+  Button,
 } from 'react-native';
 import {Card} from 'react-native-paper';
 
 import {firebase} from '../../src/firebase/config';
 import styles from './styles';
+import {
+  goNorth,
+  goSouth,
+  goEast,
+  goWest,
+} from '../../CustomProperties/inputController';
 
-const handleSubmit = () => {
-  alert('This function should handle player input');
+const handleSubmit = (inputPhrase: string) => {
+  console.log(inputPhrase);
 };
 
 const NewGameScreen = () => {
-  const [value, onChangeText] = React.useState('Enter your command...');
+  const [value, onChangeText] = React.useState('Enter your custom command...');
   const [locations, setLocations] = useState([]);
   const newLocations = [];
 
@@ -53,11 +60,18 @@ const NewGameScreen = () => {
             <TextInput
               style={{height: 40, borderColor: 'gray', borderWidth: 1}}
               onChangeText={text => onChangeText(text)}
+              onSubmitEditing={handleSubmit}
               value={value}
             />
+            <TouchableOpacity onPress={handleSubmit}>
+              <Text>Submit</Text>
+            </TouchableOpacity>
           </Card.Content>
           <Card.Actions>
-            <Button title="Submit" onPress={handleSubmit} />
+            <Button title="Go North" onPress={() => goNorth()} />
+            <Button title="Go South" onPress={() => goSouth()} />
+            <Button title="Go East" onPress={() => goEast()} />
+            <Button title="Go West" onPress={() => goWest()} />
           </Card.Actions>
         </Card>
         <View style={styles.sectionContainer}>
