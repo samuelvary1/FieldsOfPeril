@@ -3,14 +3,14 @@ import {
   Button,
   FlatList,
   SafeAreaView,
-  StyleSheet,
   Text,
   TextInput,
   View,
 } from 'react-native';
 import {Card} from 'react-native-paper';
-import {Colors} from 'react-native/Libraries/NewAppScreen';
-import {firebase} from '../src/firebase/config';
+
+import {firebase} from '../../src/firebase/config';
+import styles from './styles';
 
 const handleSubmit = () => {
   alert('This function should handle player input');
@@ -25,8 +25,8 @@ const NewGameScreen = () => {
     const db = firebase.firestore();
     db.collection('locations')
       .get()
-      .then((snapshot) => {
-        snapshot.docs.forEach((doc) => {
+      .then(snapshot => {
+        snapshot.docs.forEach(doc => {
           let location = doc.data();
           location = JSON.stringify(location);
           newLocations.push(location);
@@ -61,7 +61,7 @@ const NewGameScreen = () => {
             <Text>"You find yourself in an abandoned apartment..."</Text>
             <TextInput
               style={{height: 40, borderColor: 'gray', borderWidth: 1}}
-              onChangeText={(text) => onChangeText(text)}
+              onChangeText={text => onChangeText(text)}
               value={value}
             />
           </Card.Content>
@@ -76,7 +76,7 @@ const NewGameScreen = () => {
                 <FlatList
                   data={locations}
                   renderItem={renderEntity}
-                  keyExtractor={(location) => location.locationId}
+                  keyExtractor={location => location.locationId}
                   removeClippedSubviews={true}
                 />
               )}
@@ -87,56 +87,5 @@ const NewGameScreen = () => {
     </>
   );
 };
-
-const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
-  },
-  engine: {
-    position: 'absolute',
-    right: 0,
-  },
-  body: {
-    backgroundColor: Colors.white,
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
-  },
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-  },
-  buttonContainer: {
-    margin: 20,
-  },
-  alternativeLayoutButtonContainer: {
-    margin: 20,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-});
 
 export default NewGameScreen;

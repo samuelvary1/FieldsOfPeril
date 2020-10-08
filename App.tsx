@@ -15,8 +15,8 @@ import React from 'react';
 import {Provider as PaperProvider} from 'react-native-paper';
 
 import theme from './CustomProperties/Theme';
-import HomeScreen from './Components/HomeScreen';
-import NewGameScreen from './Components/NewGameScreen';
+import HomeScreen from './Components/HomeScreen/HomeScreen';
+import NewGameScreen from './Components/NewGameScreen/NewGameScreen';
 
 const Stack = createStackNavigator();
 
