@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 
 import {
   StyleSheet,
@@ -7,12 +7,10 @@ import {
   Button,
   SafeAreaView,
   ScrollView,
-  FlatList,
 } from 'react-native';
 
-import {Card, useTheme} from 'react-native-paper';
+import {Card} from 'react-native-paper';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import {firebase} from '../src/firebase/config';
 
 const handlePress = () => {
   // eslint-disable-next-line no-alert

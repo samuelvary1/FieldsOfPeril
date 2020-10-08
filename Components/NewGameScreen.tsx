@@ -25,8 +25,8 @@ const NewGameScreen = () => {
     const db = firebase.firestore();
     db.collection('locations')
       .get()
-      .then(snapshot => {
-        snapshot.docs.forEach(doc => {
+      .then((snapshot) => {
+        snapshot.docs.forEach((doc) => {
           let location = doc.data();
           location = JSON.stringify(location);
           newLocations.push(location);
@@ -34,7 +34,7 @@ const NewGameScreen = () => {
           setLocations(newLocations);
         });
       });
-    error => {
+    (error: any) => {
       console.log(error);
     };
   }, []);
@@ -61,7 +61,7 @@ const NewGameScreen = () => {
             <Text>"You find yourself in an abandoned apartment..."</Text>
             <TextInput
               style={{height: 40, borderColor: 'gray', borderWidth: 1}}
-              onChangeText={text => onChangeText(text)}
+              onChangeText={(text) => onChangeText(text)}
               value={value}
             />
           </Card.Content>
@@ -76,7 +76,7 @@ const NewGameScreen = () => {
                 <FlatList
                   data={locations}
                   renderItem={renderEntity}
-                  keyExtractor={location => location.locationId}
+                  keyExtractor={(location) => location.locationId}
                   removeClippedSubviews={true}
                 />
               )}
