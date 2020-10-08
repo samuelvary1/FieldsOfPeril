@@ -38,18 +38,6 @@ const NewGameScreen = () => {
     };
   }, []);
 
-  const renderEntity = () => {
-    console.log(locations[0].name);
-    return (
-      <View>
-        <FlatList
-          data={locations}
-          renderItem={({item}) => <Text>{item.name}</Text>}
-        />
-      </View>
-    );
-  };
-
   return (
     <>
       <SafeAreaView>
@@ -78,7 +66,7 @@ const NewGameScreen = () => {
               {locations && (
                 <FlatList
                   data={locations}
-                  renderItem={renderEntity}
+                  renderItem={({item}) => <Text>{item.name}</Text>}
                   keyExtractor={location => location.locationId}
                   removeClippedSubviews={true}
                 />
