@@ -60,7 +60,7 @@ const NewGameScreen = () => {
             <TextInput
               style={{height: 40, borderColor: 'gray', borderWidth: 1}}
               onChangeText={text => onChangeText(text)}
-              onSubmitEditing={(event) => handleSubmit(event.nativeEvent.text)}
+              onSubmitEditing={event => handleSubmit(event.nativeEvent.text)}
               value={value}
             />
           </Card.Content>
