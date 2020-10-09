@@ -5,7 +5,6 @@ import {
   Text,
   TextInput,
   View,
-  TouchableOpacity,
   Button,
 } from 'react-native';
 import {Card} from 'react-native-paper';
@@ -26,6 +25,8 @@ const handleSubmit = (inputPhrase: string) => {
 const NewGameScreen = () => {
   const [value, onChangeText] = useState('Enter your custom command...');
   const [locations, setLocations] = useState([]);
+  // on starting a new game the player should always start in the apartment living room
+  const [currentLocationId, setCurrentLocationId] = useState(1);
   const newLocations = [];
 
   useEffect(() => {
@@ -35,7 +36,6 @@ const NewGameScreen = () => {
       .then(snapshot => {
         snapshot.docs.forEach(doc => {
           let location = doc.data();
-          // location = JSON.stringify(location);
           newLocations.push(location);
           setLocations(newLocations);
         });
@@ -44,6 +44,13 @@ const NewGameScreen = () => {
       console.log(error);
     };
   }, []);
+
+  const handleCurrentLocation = (currentLocationId: number) => {
+    if (locations.length === 2) {
+      locations.find(location => location.locationId == currentLocationId).name;
+    }
+    return currentLocationName;
+  }
 
   return (
     <>
@@ -56,7 +63,9 @@ const NewGameScreen = () => {
             }}
           />
           <Card.Content>
-            <Text>"You find yourself in an abandoned apartment..."</Text>
+            <Text>
+              Current location: {handleCurrentLocation(currentLocationId)}
+            </Text>
             <TextInput
               style={{height: 40, borderColor: 'gray', borderWidth: 1}}
               onChangeText={text => onChangeText(text)}
@@ -65,6 +74,7 @@ const NewGameScreen = () => {
             />
           </Card.Content>
           <Card.Actions>
+            {/* break this out into a control panel component */}
             <Button title="Go North" onPress={() => goNorth()} />
             <Button title="Go South" onPress={() => goSouth()} />
             <Button title="Go East" onPress={() => goEast()} />
