@@ -29,6 +29,26 @@ const NewGameScreen = () => {
   const [currentLocationId, setCurrentLocationId] = useState(1);
   const newLocations = [];
 
+  const goSouth = currentLocationId => {
+    currentLocation = locations.find(
+      location => location.locationId == currentLocationId,
+    );
+    if (currentLocation.locationIdSouth) {
+      console.log(currentLocation);
+      setCurrentLocationId(currentLocation.locationIdSouth);
+    }
+  };
+
+  const goNorth = currentLocationId => {
+    currentLocation = locations.find(
+      location => location.locationId == currentLocationId,
+    );
+    if (currentLocation.locationIdNorth) {
+      console.log(currentLocation);
+      setCurrentLocationId(currentLocation.locationIdNorth);
+    }
+  };
+
   useEffect(() => {
     const db = firebase.firestore();
     db.collection('locations')
@@ -45,13 +65,6 @@ const NewGameScreen = () => {
     };
   }, []);
 
-  const handleCurrentLocation = (currentLocationId: number) => {
-    if (locations.length === 2) {
-      locations.find(location => location.locationId == currentLocationId).name;
-    }
-    return currentLocationName;
-  }
-
   return (
     <>
       <SafeAreaView>
@@ -64,7 +77,12 @@ const NewGameScreen = () => {
           />
           <Card.Content>
             <Text>
-              Current location: {handleCurrentLocation(currentLocationId)}
+              Current location:{' '}
+              {locations.length === 2
+                ? locations.find(
+                    location => location.locationId == currentLocationId,
+                  ).name
+                : 'Apartment Living Room'}
             </Text>
             <TextInput
               style={{height: 40, borderColor: 'gray', borderWidth: 1}}
@@ -75,8 +93,14 @@ const NewGameScreen = () => {
           </Card.Content>
           <Card.Actions>
             {/* break this out into a control panel component */}
-            <Button title="Go North" onPress={() => goNorth()} />
-            <Button title="Go South" onPress={() => goSouth()} />
+            <Button
+              title="Go North"
+              onPress={() => goNorth(currentLocationId)}
+            />
+            <Button
+              title="Go South"
+              onPress={() => goSouth(currentLocationId)}
+            />
             <Button title="Go East" onPress={() => goEast()} />
             <Button title="Go West" onPress={() => goWest()} />
           </Card.Actions>
