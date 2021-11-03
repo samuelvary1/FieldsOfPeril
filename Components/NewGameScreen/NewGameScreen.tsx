@@ -51,7 +51,7 @@ const NewGameScreen = () => {
 
   const goEast = playerLocationId => {
     var currentLocation = locations.find(
-      location => location.locationId == playerLocationId,
+      location => location.locationId === playerLocationId,
     );
     if (currentLocation.locationIdEast) {
       console.log(currentLocation);
@@ -98,7 +98,7 @@ const NewGameScreen = () => {
           <Card.Content>
             <Text>
               Current location:{' '}
-              {locations.length === 2
+              {locations.length === 42
                 ? locations.find(
                     location => location.locationId == currentLocationId,
                   ).name

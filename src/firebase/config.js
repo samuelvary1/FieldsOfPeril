@@ -3,13 +3,13 @@ import '@firebase/auth';
 import '@firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyBSf6Oi6tsZCY8PJx588XezL_0ZpCn6B10',
-  authDomain: 'fields-of-peril.firebaseapp.com',
-  databaseURL: 'https://fields-of-peril.firebaseio.com',
-  projectId: 'fields-of-peril',
-  storageBucket: 'fields-of-peril.appspot.com',
-  messagingSenderId: '918616759858',
-  appId: '1:918616759858:ios:4fd93c52ddad17ebd8e62b',
+  apiKey: 'AIzaSyDMOkcSR4tslnvI6gXiAHExbWFgDo5uVgE',
+  authDomain: 'fields-of-peril-3ea19.firebaseapp.com',
+  databaseURL: 'https://fields-of-peril-3ea19.firebaseio.com',
+  projectId: 'fields-of-peril-3ea19',
+  storageBucket: 'fields-of-peril-3ea19.appspot.com',
+  messagingSenderId: '439759482827',
+  appId: '1:439759482827:ios:f37e6ae6c2edd1f160d04e',
 };
 
 if (!firebase.apps.length) {

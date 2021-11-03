@@ -1,15 +1,15 @@
 export const goNorth = () => {
-  console.log("Check locations to the north");
-}
+  console.log('Check locations to the north');
+};
 
 export const goSouth = () => {
-  console.log("Check locations to the south");
-}
+  console.log('Check locations to the south');
+};
 
 export const goEast = () => {
-  console.log("Check locations to the east");
-}
+  console.log('Check locations to the east');
+};
 
 export const goWest = () => {
-  console.log("Check locations to the west");
-}
+  console.log('Check locations to the west');
+};
